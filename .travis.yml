@@ -1,0 +1,11 @@
+language: php
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+php:
+  - 7.1
+
+script:
+  - sh pull-request.sh
