@@ -5,7 +5,7 @@ HUB=2.2.9
 ORIGIN=https://github.com/EC-CUBE/ec-cube.git
 REMOTE=https://github.com/${GITHUB_USER}/ec-cube.git
 BRANCH=composer-update-`date +%Y%m%d`
-TARGET_BRANCH=master
+TARGET_BRANCH=${TRAVIS_BRANCH}
 CLONE_DIR=ec-cube
 
 # 認証情報の設定.
@@ -53,7 +53,7 @@ git commit -m "composer update"
 git push ${GITHUB_USER} ${BRANCH}
 
 # pull requestの送信.
-echo "composer update `date +%Y-%m-%d`
+echo "[${TARGET_BRANCH}] composer update `date +%Y-%m-%d`
 
 ## composer update
 \`\`\`
