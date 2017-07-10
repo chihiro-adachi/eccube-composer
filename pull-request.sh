@@ -4,7 +4,7 @@ HUB=2.2.9
 
 ORIGIN=https://github.com/EC-CUBE/ec-cube.git
 REMOTE=https://github.com/${GITHUB_USER}/ec-cube.git
-BRANCH=composer-update-`date +%Y%m%d`
+BRANCH=composer-update-`date +%Y%m%d%H%M%S`
 TARGET_BRANCH=${TRAVIS_BRANCH}
 CLONE_DIR=ec-cube
 
