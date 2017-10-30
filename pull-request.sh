@@ -68,4 +68,8 @@ echo "[${TARGET_BRANCH}] composer update `date +%Y-%m-%d`
 \`\`\`
 " > pr.log
 
+if [ ${SKIP_PULL_REQUEST} -eq 1 ]; then
+    exit 0
+fi
+
 hub pull-request -F pr.log -b EC-CUBE/ec-cube:${TARGET_BRANCH} ${GITHUB_USER}/ec-cube:${BRANCH}
