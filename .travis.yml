@@ -8,4 +8,6 @@ php:
   - 7.1
 
 script:
+  - stty cols 120
+  - export COLUMNS=120
   - sh pull-request.sh
