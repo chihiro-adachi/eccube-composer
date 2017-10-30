@@ -25,6 +25,9 @@ git config --global core.autocrlf "input"
 git config --global hub.protocol "https"
 git config --global credential.helper "store --file=$HOME/.config/git-credential"
 
+# composerの設定.
+composer config --global github-oauth.github.com ${GITHUB_TOKEN_COMPOSER}
+
 # hubのインストール.
 curl -LO "https://github.com/github/hub/releases/download/v$HUB/hub-linux-amd64-$HUB.tgz" || exit 1
 tar xvxf "hub-linux-amd64-$HUB.tgz"
@@ -38,8 +41,8 @@ git remote add ${GITHUB_USER} ${REMOTE}
 git checkout -b ${BRANCH} origin/${TARGET_BRANCH}
 
 # composer更新.
-composer install --no-suggest
-composer update --no-suggest 2> composer.log
+composer install --no-suggest --no-interaction
+composer update --no-suggest --no-interaction 2> composer.log
 grep "Nothing to install or update" composer.log
 
 # 更新がなければ終了.
